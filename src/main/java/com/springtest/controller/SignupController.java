@@ -1,14 +1,12 @@
 package com.springtest.controller;
 
 import com.springtest.models.User;
-import com.springtest.validator.SignupValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -21,7 +19,7 @@ public class SignupController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signupPost(@Valid User user, BindingResult result){
+    public String signupPost(@ModelAttribute("user") @Valid User user, BindingResult result){
 //        SignupValidator signupValidator = new SignupValidator();
 //        signupValidator.validate(user,result);
         if(result.hasErrors()){

@@ -1,5 +1,7 @@
 package com.springtest.models;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -8,22 +10,24 @@ public class User {
     private Long userId;
     @NotNull(message = "Username cannot be empty")
     @Size(min = 4, max = 20, message = "Size needs to be between 4-20")
-    @Pattern(regexp = "^[a-zA-Z0-9-_]$", message = "Invalid format it can only take A-Z, a-z, 0-9, -, _")
+    @Pattern(regexp = "^[A-Za-z0-9]+([-_.][A-Za-z0-9]+){0,2}$", message = "Invalid format, it can only take A-z, 0-9, .,-,_")
     private String userName;
     @NotNull(message = "First Name cannot be empty")
     @Size(min = 4, max = 20, message = "Size needs to be between 4-20")
-    @Pattern(regexp = "^[a-zA-Z]$", message = "Invalid format it can only take A-Z, a-z")
+    @Pattern(regexp = "^[A-Z][a-z]+$", message = "Invalid format. Must Start with capital and only take A-z")
     private String firstName;
     @NotNull(message = "Last Name cannot be empty")
     @Size(min = 4, max = 20, message = "Size needs to be between 4-20")
-    @Pattern(regexp = "^[a-zA-Z]$", message = "Invalid format it can only take A-Z, a-z")
+    @Pattern(regexp = "^[A-Z][a-z]+$", message = "Invalid format. Must Start with capital and only take A-z")
     private String lastName;
+
     private boolean enabled;
-    @NotNull
+    @NotNull(message = "Are you belongs to 3rd Gender? Please select one")
     private String gender;
     @NotNull
-    @Pattern(regexp = "$[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
-            message = "Invalid Email Format")
+//    @Pattern(regexp = "$[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
+//            message = "Invalid Email Format")
+    @Email
     private String email;
 
     public User() {

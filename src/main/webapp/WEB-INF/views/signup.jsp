@@ -24,25 +24,27 @@
 
     <table border="0" cellpadding="2" cellspacing="2">
         <tr>
-            <td>Username: <form:errors path="userName" /> </td>
-            <td><form:input path="userName"/></td>
+            <td>Username:</td>
+            <td><form:input path="userName"/>  <form:errors path="userName" /> </td>
         </tr>
         <tr>
-            <td>First Name: <form:errors path="firstName" /> </td>
-            <td><form:input path="firstName"/></td>
+            <td>First Name:</td>
+            <td><form:input path="firstName"/> <form:errors path="firstName" /> </td>
         </tr>
         <tr>
-            <td>Last Name: <form:errors path="lastName" /> </td>
-            <td><form:input path="lastName"/></td>
+            <td>Last Name:</td>
+            <td><form:input path="lastName"/> <form:errors path="lastName" /> </td>
         </tr>
         <tr>
-            <td>Gender: <form:errors path="gender" /> </td>
+            <td>Gender:</td>
             <td><form:checkbox path="gender" value="M"/>Male</td>
             <td><form:checkbox path="gender" value="F"/>Female</td>
         </tr>
+        <tr><td><form:errors path="gender" /></td></tr>
+
         <tr>
-            <td>Email: <form:errors path="email" /> </td>
-            <td><form:input path="email"/></td>
+            <td>Email:</td>
+            <td><form:input path="email"/> <form:errors path="email" /> </td>
         </tr>
         <tr>
             <td><input type="submit" value="Submit" /></td>
